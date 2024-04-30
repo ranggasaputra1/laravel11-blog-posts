@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contact</title>
-</head>
-<body>
-    <h2>Email : {{ $email }}</h2>
-    <h2>Social Media: <a href="{{ $social_media }}">{{ $social_media }}</a></h2>
-</body>
-</html>
+<x-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
+    <x-slot:header>{{ $header }}</x-slot:header>
+
+    {{-- isi dari main --}}
+    <h2>coba ini adalah bagian main dari halaman Contact</h2>
+    {{-- end main --}}
+</x-layout>

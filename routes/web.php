@@ -4,28 +4,30 @@ use Illuminate\Support\Facades\Route;
 use Spatie\FlareClient\View;
 
 Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/about', function(){
-    return view('about', [
-        'nama' => 'Rangga Saputra',
-        'alamat' => 'bandung',
+    return view('home', [
+        "title" => "Home Page",
+        "header" => "Home Page"
     ]);
 });
 
 Route::get('/blog', function(){
     return view('blog', [
-        'title' => 'Article',
-        'body' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima, quasi repellendus. Ut ipsa enim inventore
-        voluptate nam sint fuga minima, repudiandae necessitatibus qui quaerat! Aut.'
+        'title' => 'Blog',
+        "header" => "Blog Page"
+    ]);
+});
+
+Route::get('/about', function(){
+    return view('about', [
+        'title' => 'About',
+        "header" => "Header Page"
     ]);
 });
 
 Route::get('contact', function(){
     return view('contact', [
-        'email' => "rangga@gmail.com",
-        'social_media' => 'https://github.com/ranggasaputra1'
+        "title" => "Contact",
+        "header" => "Contact Page"
     ]);
 });
 
