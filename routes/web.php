@@ -20,7 +20,8 @@ Route::get('/blog', function(){
 Route::get('/about', function(){
     return view('about', [
         'title' => 'About',
-        "header" => "Header Page"
+        "header" => "Header Page",
+        "name" => "Rangga Saputra"
     ]);
 });
 

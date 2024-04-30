@@ -4,5 +4,6 @@
 
     {{-- isi dari main --}}
     <h2>coba ini adalah bagian main dari halaman About</h2>
+    <p>Name: {{ $name }}</p>
     {{-- end main --}}
 </x-layout>
