@@ -27,9 +27,7 @@
                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                 <span class="absolute -inset-1.5"></span>
                                 <span class="sr-only">Open user menu</span>
-                                <img class="h-8 w-8 rounded-full"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt="">
+                                <img class="h-8 w-8 rounded-full" src="img/profile_baju_putih.png" alt="my profile">
                             </button>
                         </div>
 
@@ -80,15 +78,16 @@
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
             <x-nav-link href="/posts" :active="request()->is('posts')">Blog</x-nav-link>
+            <x-nav-link href="/post" :active="request()->is('post')">Post</x-nav-link>
             <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
             <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+
+
         </div>
         <div class="border-t border-gray-700 pb-3 pt-4">
             <div class="flex items-center px-5">
                 <div class="flex-shrink-0">
-                    <img class="h-10 w-10 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt="">
+                    <img class="h-10 w-10 rounded-full" src="img/profile_baju_putih.png" alt="my profile">
                 </div>
                 <div class="ml-3">
                     <div class="text-base font-medium leading-none text-white">Rangga Saputra</div>

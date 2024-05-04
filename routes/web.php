@@ -1,5 +1,6 @@
 <?php
 
+Use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use Spatie\FlareClient\View;
 
@@ -14,19 +15,51 @@ Route::get('/posts', function(){
     return view('posts', [
         'title' => 'Blog',
         "header" => "Blog Page",
-        "posts" => 
+        "posts" => [
         [
+            'id'=> '1',
             'title' => 'Judul Artikel 1',
+            'slug'=> 'judul-artikel-1',
             'author' => 'Rangga',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad a nemo aliquam quis veniam adipisci nostrum
             atque quo. Ea, modi earum corporis facere officiis cum fuga minima molestiae aperiam sunt.'
         ],
         [
+            'id'=> '2',
             'title' => 'Judul Artikel 2',
+            'slug'=> 'judul-artikel-2',
             'author' => 'Saputra',
             'body' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Id velit et quis blanditiis tenetur. Sequi neque, ex, repellendus necessitatibus impedit, ipsa tempore architecto explicabo dicta iusto dolore officiis nobis alias!'
         ]
+    ]
     ]);
+});
+
+Route::get('/posts/{slug}', function($slug){
+
+    $posts = [
+        [
+            'id'=> '1',
+            'title' => 'Judul Artikel 1',
+            'slug'=> 'judul-artikel-1',
+            'author' => 'Rangga',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad a nemo aliquam quis veniam adipisci nostrum
+            atque quo. Ea, modi earum corporis facere officiis cum fuga minima molestiae aperiam sunt.'
+        ],
+        [
+            'id'=> '2',
+            'title' => 'Judul Artikel 2',
+            'slug'=> 'judul-artikel-2',
+            'author' => 'Saputra',
+            'body' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Id velit et quis blanditiis tenetur. Sequi neque, ex, repellendus necessitatibus impedit, ipsa tempore architecto explicabo dicta iusto dolore officiis nobis alias!'
+        ]
+        ];
+
+        $post = Arr::first($posts, function ($post) use ($slug){
+            return $post['slug'] == $slug;
+        });
+
+        return view('post', ['title'=> 'Singe Post', 'header' => 'Single Post', 'post' => $post]);
 });
 
 Route::get('/about', function(){
