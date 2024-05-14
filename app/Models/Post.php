@@ -9,4 +9,6 @@ Use Illuminate\Support\Arr;
 class Post extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 }

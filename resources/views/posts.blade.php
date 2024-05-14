@@ -10,7 +10,7 @@
                 <h2 class="mb-3 text-3xl tracking-tight font-bold text-gray-900">{{ $post['title'] }}</h2>
             </a>
             <div class="text-base text-gray-500">
-                <a href="#">{{ $post['author'] }}</a> | 5 Mei 2024
+                <a href="#">{{ $post['author'] }}</a> | {{ $post->created_at->diffForHumans() }}
             </div>
             <p class="my-1 font-light">
                 {{ Str::limit($post['body'], '150') }}
