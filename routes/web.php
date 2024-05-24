@@ -3,6 +3,7 @@
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Category;
 use Spatie\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,11 @@ Route::get('/posts/{post:slug}', function(Post $post){
 // Route Author to All Post
 Route::get('/authors/{user}', function(User $user){
     return view('posts', ['title'=> 'Blog', 'header' => 'Articles By ' .$user->name, 'posts' => $user->posts]);
+});
+
+// Route Post to All Category
+Route::get('/categories/{category}', function(Category $category){
+    return view('posts', ['title'=> 'Blog', 'header' => 'Articles By ' .$category->name, 'posts' => $category   ->posts]);
 });
 
 // Route About

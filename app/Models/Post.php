@@ -14,6 +14,12 @@ class Post extends Model
     // Fungsi untuk relasi ke models User   
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'author_id');
+    }
+
+    // Fungsi untuk relasi ke models Category   
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }

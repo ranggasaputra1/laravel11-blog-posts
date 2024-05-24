@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,10 +21,10 @@ class PostFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'author_id' => User::factory(),
+            'author_id' => mt_rand(1,3),
+            'category_id' => mt_rand(1,3),
             'slug' => Str::slug(fake()->sentence()),
             'body' => fake()->text(),
-
         ];
     }
 }
