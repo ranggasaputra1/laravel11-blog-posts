@@ -30,8 +30,8 @@ Route::get('/posts/{post:slug}', function(Post $post){
 });
 
 // Route Author to All Post
-Route::get('/authors/{user}', function(User $user){
-    return view('posts', ['title'=> 'Blog', 'header' => 'Articles By ' .$user->name, 'posts' => $user->posts]);
+Route::get('/authors/{user:username}', function(User $user){
+    return view('posts', ['title'=> 'Blog', 'header' => count($user->posts) . ' Articles By ' .$user->name, 'posts' => $user->posts]);
 });
 
 // Route Post to All Category
