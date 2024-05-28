@@ -35,8 +35,8 @@ Route::get('/authors/{user:username}', function(User $user){
 });
 
 // Route Post to All Category
-Route::get('/categories/{category}', function(Category $category){
-    return view('posts', ['title'=> 'Blog', 'header' => 'Articles By ' .$category->name, 'posts' => $category   ->posts]);
+Route::get('/categories/{category:slug}', function(Category $category){
+    return view('posts', ['title'=> 'Blog', 'header' => count($category->posts) . ' Articles in Category:  ' .$category->name, 'posts' => $category   ->posts]);
 });
 
 // Route About
