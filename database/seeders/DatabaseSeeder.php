@@ -16,20 +16,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        User::factory(3)->create();
+        $this->call([
+            CategorySeeder::class,
+            UserSeeder::class
+        ]);
 
-        Category::create([
-            'name'=>'Web Programming',
-            'slug'=>'Web-Programming',
-        ]);
-        Category::create([
-            'name'=>'Web Design',
-            'slug'=>'Web-Design',
-        ]);
-        Category::create([
-            'name'=>'Personal',
-            'slug'=>'personal',
-        ]);
-        Post::factory(100)->create();
+        Post::factory(100)->recycle([
+            Category::all(),
+            User::all()
+        ])->create();
     }
 }
