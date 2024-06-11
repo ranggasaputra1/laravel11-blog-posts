@@ -17,10 +17,11 @@ Route::get('/', function () {
 
 // Route Post Page
 Route::get('/posts', function(){
+    // $posts = Post::with(['author','category'])->latest()->get();
     return view('posts', [
         'title' => 'Blog',
         "header" => "Blog Page",
-        "posts" => Post::all()
+        "posts" => Post::latest()->get()
     ]);
 });
 
@@ -31,12 +32,15 @@ Route::get('/posts/{post:slug}', function(Post $post){
 
 // Route Author to All Post
 Route::get('/authors/{user:username}', function(User $user){
+    // $posts = $user->posts->load('category', 'author');
     return view('posts', ['title'=> 'Blog', 'header' => count($user->posts) . ' Articles By ' .$user->name, 'posts' => $user->posts]);
 });
 
 // Route Post to All Category
 Route::get('/categories/{category:slug}', function(Category $category){
-    return view('posts', ['title'=> 'Blog', 'header' => count($category->posts) . ' Articles in Category:  ' .$category->name, 'posts' => $category   ->posts]);
+    // $posts = $category->posts->load('category', 'author');
+
+    return view('posts', ['title'=> 'Blog', 'header' => count($category->posts) . ' Articles in Category:  ' .$category->name, 'posts' => $category->posts]);
 });
 
 // Route About

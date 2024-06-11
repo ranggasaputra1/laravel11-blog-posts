@@ -11,6 +11,9 @@ class Post extends Model
     use HasFactory;
     protected $guarded = [];
 
+    // di bawah ini berfungsi mengatasi lazy loading agar query ke database tidak berat
+    protected $with = ['author', 'category'];
+
     // Fungsi untuk relasi ke models User   
     public function author(): BelongsTo
     {
