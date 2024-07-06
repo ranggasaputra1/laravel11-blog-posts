@@ -17,11 +17,11 @@ Route::get('/', function () {
 
 // Route Post Page
 Route::get('/posts', function(){
-    // $posts = Post::with(['author','category'])->latest()->get();
+
     return view('posts', [
         'title' => 'Blog',
         "header" => "Blog Page",
-        "posts" => Post::latest()->get()
+        "posts" => Post::filter(request(['search', 'category', 'author']))->latest()->get()
     ]);
 });
 
